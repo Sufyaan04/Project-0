@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Sufyaan04/Project-0.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t flask-app:latest .'
@@ -21,5 +15,6 @@ pipeline {
                 sh 'docker compose up -d --build'
             }
         }
+
     }
 }
